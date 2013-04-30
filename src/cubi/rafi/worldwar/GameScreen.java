@@ -38,7 +38,6 @@ public class GameScreen extends Activity {
     public void updateView(Hangman.GameState gameState) {
     	hangmanText.setText(gameState.currentWord);
     	triesField.setText(gameState.triesLeft + " of " + Hangman.TOTAL_TRIES);
-    	
     	if(gameState.isGameLost)
     		notifyGameLost();
     	else if(gameState.isGameWon)

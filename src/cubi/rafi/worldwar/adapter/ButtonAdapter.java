@@ -19,9 +19,9 @@ public class ButtonAdapter extends BaseAdapter {
 	private static final String[] buttonValues = 
 		{
 			"A", "B", "C", "D", "E", "F", "G",
-			"H", "I", "G", "K", "L", "M", "N",
+			"H", "I", "J", "K", "L", "M", "N",
 			"O", "P", "Q", "R", "S", "T", "U",
-			"" , "V", "W", "X", "Y", "Z", "" ,
+			"",  "V", "W", "X", "Y", "Z", "" ,
 		};
 	private Button[] holder = new Button[getCount()];
 	
@@ -37,12 +37,42 @@ public class ButtonAdapter extends BaseAdapter {
 		for(int idx = 0; idx < holder.length; idx++) {
 			if(holder[idx] != null) {
 				holder[idx].setEnabled(true);
-				Log.d("Button", idx + ":" + holder[idx].getText());
+				// Log.d("Button", idx + ":" + holder[idx].getText());
 			}
 		}
 		return hangman.getCurrentWord();
 	}
-	
+
+	public View getView(final int position, View convertView, ViewGroup arg2) {
+		View view = convertView;
+		if(view == null) {
+			view = inflater.inflate(R.layout.game_button, null);
+		
+			final Button button = (Button) view.findViewById(R.id.button);
+			button.setText(buttonValues[position]);
+			holder[position] = button;
+			view.setTag(holder[position]);
+		}
+		else
+			holder[position] = (Button) view.getTag();
+		
+		(convertView.findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				if(buttonValues[position].length() != 0) {
+					Hangman.GameState gameState = hangman.updateCurrentWord(
+							buttonValues[position].charAt(0));
+					holder[position].setEnabled(false);
+					
+					gameScreen.updateView(gameState);
+					Log.d("Button", position + ":" + holder[position].getText());
+				}
+			}
+		});
+		
+		return view;
+	}
+
 	public int getCount() {
 		return buttonValues.length;
 	}
@@ -54,29 +84,6 @@ public class ButtonAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return position;
 	}
-
-	public View getView(final int position, View convertView, ViewGroup arg2) {
-		View view = convertView;
-		if(view == null) 
-			view = inflater.inflate(R.layout.game_button, null);
-		
-		final Button button = (Button) view.findViewById(R.id.button);
-		button.setText(buttonValues[position]);
-		button.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View v) {
-				Hangman.GameState gameState = hangman.updateCurrentWord(
-						buttonValues[position].charAt(0));
-				button.setEnabled(false);
-				
-				gameScreen.updateView(gameState);
-			}
-		});
-		holder[position] = button;
-		
-		return view;
-	}
-	
 	
 	@Override
 	public boolean areAllItemsEnabled() {
