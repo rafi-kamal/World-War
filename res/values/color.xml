@@ -3,5 +3,6 @@
     <color name="backgroundBorder">#1C1C1C</color>
     <color name="backgroundCenter">#555555</color>
     <color name="seperator">#898989</color>
+    <color name="red">#FFBBBB</color>
     
 </resources>

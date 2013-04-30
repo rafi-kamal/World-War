@@ -19,7 +19,7 @@ public class Hangman {
 		triesLeft = TOTAL_TRIES;
 		gameWon = gameLost = false;
 		
-		while(dashes <= 2 && dashes != word.length())
+		while(dashes <= 2 || dashes >= word.length() - 1)
 			generateCurrentWord();
 	}
 

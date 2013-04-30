@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Ohio"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
@@ -37,7 +36,7 @@
 
             <TextView
                 style="@style/TextView.Normal"
-                android:text="Launch Code" />
+                android:text="Abort Code" />
 
             <TextView
                 style="@style/TextView.Normal"
@@ -46,10 +45,10 @@
                 android:background="@color/seperator" />
 
             <TextView
-                android:id="@+id/launch_code"
-                style="@style/TextView.Normal"
-                android:layout_marginBottom="5dp"
-                android:text="3 of 5" />
+                android:id="@+id/abort_code"
+                style="@style/TextView.Normal" />
+            
+            <include layout="@layout/pad"/>
 
             <TextView
                 style="@style/TextView.Normal"
@@ -63,8 +62,9 @@
 
             <TextView
                 android:id="@+id/tries"
-                style="@style/TextView.Normal"
-                android:layout_marginBottom="5dp" />
+                style="@style/TextView.Normal" />
+            
+            <include layout="@layout/pad"/>
 
             <TextView
                 style="@style/TextView.Normal"
@@ -79,7 +79,6 @@
             <TextView
                 android:id="@+id/time"
                 style="@style/TextView.Normal"
-                android:layout_marginBottom="5dp"
                 android:text="05:22" />
         </LinearLayout>
     </LinearLayout>
@@ -91,7 +90,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:typeface="monospace" />
 
     <GridView
         android:id="@+id/buttons"

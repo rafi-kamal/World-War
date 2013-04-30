@@ -1,7 +1,6 @@
 package cubi.rafi.worldwar.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +17,10 @@ public class ButtonAdapter extends BaseAdapter {
 	private Hangman hangman;
 	private static final String[] buttonValues = 
 		{
-			"A", "B", "C", "D", "E", "F", "G",
+			"",  "A", "B", "C", "D", "E",  "", "F", "G",
 			"H", "I", "J", "K", "L", "M", "N",
 			"O", "P", "Q", "R", "S", "T", "U",
-			"",  "V", "W", "X", "Y", "Z", "" ,
+			"V", "W", "X", "Y", "Z",
 		};
 	private Button[] holder = new Button[getCount()];
 	
@@ -46,17 +45,17 @@ public class ButtonAdapter extends BaseAdapter {
 	public View getView(final int position, View convertView, ViewGroup arg2) {
 		View view = convertView;
 		if(view == null) {
-			view = inflater.inflate(R.layout.game_button, null);
-		
-			final Button button = (Button) view.findViewById(R.id.button);
+			final Button button = new Button(gameScreen);
 			button.setText(buttonValues[position]);
+			
+			view = button;
 			holder[position] = button;
 			view.setTag(holder[position]);
 		}
 		else
 			holder[position] = (Button) view.getTag();
 		
-		(convertView.findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+		holder[position].setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
 				if(buttonValues[position].length() != 0) {
@@ -65,7 +64,7 @@ public class ButtonAdapter extends BaseAdapter {
 					holder[position].setEnabled(false);
 					
 					gameScreen.updateView(gameState);
-					Log.d("Button", position + ":" + holder[position].getText());
+					//Log.d("Button", position + ":" + holder[position].getText());
 				}
 			}
 		});

@@ -17,6 +17,7 @@ public final class R {
     public static final class color {
         public static final int backgroundBorder=0x7f050000;
         public static final int backgroundCenter=0x7f050001;
+        public static final int red=0x7f050003;
         public static final int seperator=0x7f050002;
     }
     public static final class drawable {
@@ -25,10 +26,10 @@ public final class R {
         public static final int rocket=0x7f020002;
     }
     public static final class id {
+        public static final int abort_code=0x7f080002;
         public static final int button=0x7f080000;
         public static final int buttons=0x7f080006;
         public static final int hangman=0x7f080005;
-        public static final int launch_code=0x7f080002;
         public static final int state=0x7f080001;
         public static final int time=0x7f080004;
         public static final int tries=0x7f080003;
@@ -36,6 +37,7 @@ public final class R {
     public static final class layout {
         public static final int game_button=0x7f030000;
         public static final int main=0x7f030001;
+        public static final int pad=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
