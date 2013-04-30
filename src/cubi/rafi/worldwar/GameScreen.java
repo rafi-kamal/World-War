@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +18,7 @@ import cubi.rafi.worldwar.game.Hangman;
 
 public class GameScreen extends Activity {
 	
-	private static final String CURRENT_US_STATE = "us_state";
+	static final String CURRENT_US_STATE = "us_state";
 	private static final int ABORT_CODE_TOTAL = 5;
 	private static final int MAX_TIME = 100;
 	
@@ -124,7 +123,7 @@ public class GameScreen extends Activity {
     public void notifyGameLost() {
     	timer.cancel();
     	String message = "We have lost " + states[currentUsState] + 
-    			". Lets try again";
+    			". Lets try again!";
     	AlertDialog.Builder dialog =
     			new AlertDialog.Builder(this);
     	dialog.setTitle("Sorry!")

@@ -5,4 +5,11 @@
     <color name="seperator">#898989</color>
     <color name="red">#FFBBBB</color>
     
+    <color name="appBackGround">#EFF0F2</color>
+    <color name="blueButtonStart">#2F82AA</color>
+    <color name="blueButtonEnd">#2B6F94</color>
+    <color name="blueButtonClickedEnd">#5B9FD4</color>
+    <color name="blueButtonClickedStart">#5FA2CA</color>
+    <color name="blueButtonStroke">#A8DFF4</color>
+    
 </resources>

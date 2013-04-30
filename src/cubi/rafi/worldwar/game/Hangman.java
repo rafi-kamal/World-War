@@ -19,30 +19,23 @@ public class Hangman {
 		triesLeft = TOTAL_TRIES;
 		gameWon = gameLost = false;
 		
-		while(dashes <= 2 || dashes >= word.length() - 1)
-			generateCurrentWord();
-	}
-
-	private void generateCurrentWord() {
 		currentWord = new StringBuffer(word);
-		dashes = 0;
-		for (int idx = 0; idx < word.length(); idx++) {
-			double proability = random.nextDouble();
-			if (proability > 0.3) {
-				currentWord.setCharAt(idx, '-');
-				dashes++;
-			}
-		}
+		for (int idx = 0; idx < word.length(); idx++)
+			currentWord.setCharAt(idx, '-');
+		dashes = word.length();
 	}
 	
 	public GameState updateCurrentWord(char ch) {
+		boolean changed = false;
 		for(int idx = 0; idx < currentWord.length(); idx++) {
 			if(ch == word.charAt(idx) && currentWord.charAt(idx) == '-') {
 				currentWord.setCharAt(idx, ch);
 				dashes--;
+				changed = true;
 			}
 		}
-		triesLeft--;
+		if(!changed)
+			triesLeft--;
 		
 		if(dashes == 0)
 			gameWon = true;
