@@ -1,4 +1,4 @@
-package cubi.rafi.worldwar.game;
+package rouge.games.worldwar.game;
 
 import java.util.Random;
 

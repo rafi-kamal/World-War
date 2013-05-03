@@ -1,7 +1,10 @@
-package cubi.rafi.worldwar;
+package rouge.games.worldwar;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import rouge.games.worldwar.adapter.ButtonAdapter;
+import rouge.games.worldwar.game.Hangman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,11 +13,10 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
-import cubi.rafi.worldwar.adapter.ButtonAdapter;
-import cubi.rafi.worldwar.game.Hangman;
 
 public class GameScreen extends Activity {
 	
@@ -55,6 +57,7 @@ public class GameScreen extends Activity {
         timeField = (TextView) findViewById(R.id.time);
         
         states = getResources().getStringArray(R.array.states);
+        Log.d("Activity", "game screen");
         
         loadData();
         startGame();

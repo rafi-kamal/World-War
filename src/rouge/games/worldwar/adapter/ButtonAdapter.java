@@ -1,14 +1,14 @@
-package cubi.rafi.worldwar.adapter;
+package rouge.games.worldwar.adapter;
 
+import rouge.games.worldwar.GameScreen;
+import rouge.games.worldwar.R;
+import rouge.games.worldwar.game.Hangman;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import cubi.rafi.worldwar.GameScreen;
-import cubi.rafi.worldwar.R;
-import cubi.rafi.worldwar.game.Hangman;
 
 public class ButtonAdapter extends BaseAdapter {
 

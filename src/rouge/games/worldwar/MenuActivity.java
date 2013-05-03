@@ -1,4 +1,4 @@
-package cubi.rafi.worldwar;
+package rouge.games.worldwar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,7 +27,7 @@ public class MenuActivity extends Activity {
 
 			public void onClick(View v) {
 				Intent intent = new Intent(getBaseContext(),
-						GameScreen.class);
+						StartScreen1.class);
 				startActivity(intent);
 				resetState();
 			}
